@@ -1,0 +1,4 @@
+node_modules
+twemoji
+dist
+.parcel-cache

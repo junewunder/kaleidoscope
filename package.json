@@ -1,0 +1,12 @@
+{
+  "name": "kaleidoscope",
+  "version": "1.0.0",
+  "author": "june wowperfect",
+  "license": "MIT",
+  "source": "src/index.html",
+  "dependencies": {
+    "@pixi/graphics-extras": "^6.2.0",
+    "parcel": "^2.0.1",
+    "pixi.js": "^6.2.0"
+  }
+}
