@@ -11,7 +11,7 @@ import * as PIXI from 'pixi.js'
 import '@pixi/graphics-extras'
 
 const modes = {
-  singleHex: true,
+  singleHex: false,
   masked: true,
 }
 
@@ -81,8 +81,8 @@ class Hexagon {
     })
     this.container.x = this.texture.width / 2
     this.container.y = this.texture.height / 2
-    // for (let i = 0; i < 6; i++) {
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < 6; i++) {
+    // for (let i = 0; i < 1; i++) {
       const tri = new PIXI.Sprite(bgTex)
       tri.position.set(0, 0)
       if (i % 2 === 0) {
@@ -123,7 +123,7 @@ class Hexagon {
     this.theta = theta
     this.radius = radius
     let [x, y] = this.toXY(theta, radius)
-    // if (!this.checkBounds(x, y)) return
+    if (!this.checkBounds(x, y)) return
     // this.localTheta = atan(y / x)
     // this.localRadius = sqrt(x * x + y * y)
     // for (let tri of this.tris) {
@@ -132,7 +132,7 @@ class Hexagon {
       this.tris[i].rotation = this.globalRotation[i] + theta
     }
     this.bgMask.clear()
-    drawMask(this.bgMask, x, y, GLITTER_VIEW_SIZE, theta)
+    drawMask(this.bgMask, x, y, GLITTER_VIEW_SIZE, +theta)
     app.renderer.render(this.bg, { renderTexture: this.bgTex })
     app.renderer.render(this.container, { renderTexture: this.texture })
   }
@@ -160,7 +160,7 @@ function main () {
 
   // make hexagon
   hexagon = new Hexagon(glitterContainer, glitterTex)
-  hexagon.moveTo(0, 100)
+  hexagon.moveTo(PI / 2, 100)
 
   const makeHexSprite = (x, y) => {
     let hexSprite = new PIXI.Sprite(hexagon.texture)
@@ -243,6 +243,6 @@ function mainloop() {
   // const y = (t % (GLITTER_AREA_SIZE - GLITTER_VIEW_SIZE)) + GLITTER_VIEW_SIZE
   // const y = t
   // hexagon.moveTo(x, y)
-  hexagon.moveTo(((t / 100) % PI) - PI / 4, 100)
+  hexagon.moveTo(((t / 100) % PI), 100)
   // hexagon.moveToPolar(PI / 2 + t / 100, 100)
 }

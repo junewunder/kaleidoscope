@@ -4,6 +4,10 @@
   "author": "june wowperfect",
   "license": "MIT",
   "source": "src/index.html",
+  "scripts": {
+    "watch": "parcel .",
+    "build": "parcel build"
+  },
   "dependencies": {
     "@pixi/graphics-extras": "^6.2.0",
     "parcel": "^2.0.1",
