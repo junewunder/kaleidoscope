@@ -24,7 +24,7 @@ const glitterPack = pack =>
   glitterpacks[pack].map((fname, i) =>
     ({name: pack + i, tex: fname}))
 
-let glitters = glitterPack('june1')
+let glitters = glitterPack('emoji1')
 
 const app = new PIXI.Application({
   width: window.innerWidth, height: window.innerHeight
